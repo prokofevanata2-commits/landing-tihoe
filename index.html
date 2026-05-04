@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тихое освобождение — программа от Натальи Прокофьевой</title>
+<meta name="description" content="Программа об обиде, которая уходит сама — без героических усилий и без надо простить всех. Шесть подкаст-модулей, тридцать ежедневных практик. Тариф от 1 990 ₽.">
+<style>
+  :root {
+    --bg: #f5f1ec;
+    --bg2: #ebe4dc;
+    --ink: #2d2823;
+    --soft: #6e655c;
+    --accent: #8a6f4f;
+    --accent-dark: #6f5639;
+    --line: #d8cfc4;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 60px;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    text-align: center;
+  }
+  .hero .kicker {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 44px;
+    line-height: 1.2;
+    font-weight: normal;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .hero .lead {
+    font-size: 20px;
+    color: var(--soft);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-style: italic;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 16px 36px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+  .hero-cta:hover { background: var(--accent-dark); }
+  .hero-sub {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--soft);
+  }
+
+  /* SECTIONS */
+  section { padding: 60px 0; border-top: 1px solid var(--line); }
+  section h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 32px;
+    text-align: center;
+    letter-spacing: -0.005em;
+  }
+  section p { margin-bottom: 18px; }
+  section p.intim { font-style: italic; color: var(--soft); }
+
+  /* PAIN */
+  .pain { background: var(--bg2); }
+  .pain-list { list-style: none; max-width: 580px; margin: 0 auto; }
+  .pain-list li {
+    padding: 14px 0 14px 32px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .pain-list li:last-child { border-bottom: none; }
+  .pain-list li::before {
+    content: '·';
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    font-size: 28px;
+    color: var(--accent);
+  }
+
+  /* PROGRAM */
+  .modules-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .module {
+    background: var(--card);
+    padding: 24px 28px;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+  }
+  .module .num {
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .module h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 8px;
+  }
+  .module p {
+    font-size: 16px;
+    color: var(--soft);
+    margin: 0;
+  }
+
+  /* AUTHOR */
+  .author {
+    background: var(--bg2);
+    text-align: center;
+  }
+  .author-block {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .author p { text-align: left; }
+  .author .signature {
+    margin-top: 28px;
+    font-style: italic;
+    color: var(--soft);
+    text-align: center;
+  }
+
+  /* TARIFFS */
+  .tariffs {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .tariff {
+    background: var(--card);
+    padding: 32px 28px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tariff:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(45, 40, 35, 0.08);
+  }
+  .tariff.featured { border: 2px solid var(--accent); }
+  .tariff .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 12px;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .tariff h3 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 6px;
+  }
+  .tariff .price {
+    font-size: 30px;
+    color: var(--accent-dark);
+    margin-bottom: 18px;
+    letter-spacing: -0.005em;
+  }
+  .tariff ul {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+  .tariff ul li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    color: var(--soft);
+    font-size: 16px;
+  }
+  .tariff ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .tariff a.cta-btn {
+    display: block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px;
+    text-align: center;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .tariff a.cta-btn:hover { background: var(--accent-dark); }
+
+  /* FAQ */
+  .faq dl { max-width: 600px; margin: 0 auto; }
+  .faq dt {
+    font-size: 18px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: var(--ink);
+    font-weight: bold;
+  }
+  .faq dd {
+    color: var(--soft);
+    margin-left: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 0 60px;
+    background: var(--bg2);
+    text-align: center;
+    color: var(--soft);
+    font-size: 14px;
+    border-top: 1px solid var(--line);
+  }
+  footer a { color: var(--accent-dark); }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .hero { padding: 60px 0 40px; }
+    .hero h1 { font-size: 32px; }
+    .hero .lead { font-size: 17px; }
+    section { padding: 44px 0; }
+    section h2 { font-size: 26px; }
+    body { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="kicker">Программа от Натальи Прокофьевой</div>
+    <h1>Тихое освобождение</h1>
+    <p class="lead">Об обиде, которая уходит сама. Без героических усилий и без «надо простить всех».</p>
+    <a href="#tariffs" class="hero-cta">Посмотреть тарифы</a>
+    <div class="hero-sub">от 1 990 ₽ · 6 подкастов · 30 ежедневных практик</div>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="container">
+    <h2>Если внутри что-то ноет</h2>
+    <p style="text-align: center; margin-bottom: 28px; color: var(--soft);">Может быть, ты узнаешь себя.</p>
+    <ul class="pain-list">
+      <li>Прокручиваешь старые разговоры. По кругу. Годами.</li>
+      <li>Улыбаешься людям, которые когда-то очень больно тебя ранили.</li>
+      <li>Просыпаешься ночью — и видишь перед глазами ту сцену.</li>
+      <li>Решила «я больше не буду доверять». И живёшь по этому решению.</li>
+      <li>Устала держаться. Устала быть сильной для всех.</li>
+      <li>Чувствуешь, что жизнь идёт мимо. Не на радость. На ношу.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Программа</h2>
+    <p class="intim" style="text-align: center; max-width: 560px; margin: 0 auto 30px;">Шесть подкаст-модулей. По одному в день. И тридцать тихих практик после.</p>
+
+    <div class="modules-grid">
+      <div class="module">
+        <div class="num">МОДУЛЬ 1</div>
+        <h3>Где я сейчас</h3>
+        <p>Увидеть свою точку отсчёта. Без оценки и спешки.</p>
+      </div>
+      <div class="module">
+        <div class="num">МОДУЛЬ 2</div>
+        <h3>Как работает обида</h3>
+        <p>Пять слоёв обиды и почему они не уходят сами.</p>
+      </div>
+      <div class="module">
+        <div class="num">МОДУЛЬ 3</div>
+        <h3>Обида и тело</h3>
+        <p>Где обида живёт физически. И как тело начинает оттаивать.</p>
+      </div>
+      <div class="module">
+        <div class="num">МОДУЛЬ 4</div>
+        <h3>Проживание обиды</h3>
+        <p>Четыре способа дать обиде наконец выйти. Через тело, не через голову.</p>
+      </div>
+      <div class="module">
+        <div class="num">МОДУЛЬ 5</div>
+        <h3>Возврат себе силы</h3>
+        <p>Сила, которую ты отдала туда — она ждёт. Учимся забирать обратно.</p>
+      </div>
+      <div class="module">
+        <div class="num">МОДУЛЬ 6</div>
+        <h3>Новая реакция</h3>
+        <p>Что делать когда триггер случится снова. Чтобы не возвращаться в старое.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="author">
+  <div class="container author-block">
+    <h2>Кто веду эту программу</h2>
+    <p>Я Наталья Прокофьева. Я не «тренер по прощению» и не учу «отпускать всех». Я писала эту программу для одной конкретной женщины — той, которая годами носит тяжесть, попробовала всё, и устала.</p>
+    <p>Здесь не будет упражнений «надо себя заставить». Здесь будет тихий путь — через тело, через слёзы, через силу. Шесть вечеров в наушниках. Тридцать утр с одной короткой практикой.</p>
+    <p>И через тридцать дней — ты другая. Не «всё забыла». Не «простила всех». А — стала свободнее.</p>
+    <div class="signature">— Наталья</div>
+  </div>
+</section>
+
+<section id="tariffs">
+  <div class="container">
+    <h2>Выбери, как пройти</h2>
+    <div class="tariffs">
+
+      <div class="tariff">
+        <h3>Я сама</h3>
+        <div class="price">1 990 ₽</div>
+        <ul>
+          <li>6 подкаст-модулей</li>
+          <li>30 ежедневных практик</li>
+          <li>PDF-методика</li>
+          <li>Аудио-практики на каждый день</li>
+          <li>В своём темпе, без сопровождения</li>
+        </ul>
+        <a class="cta-btn" href="https://t.me/prosti_seby_bot?start=tier_basic">Начать за 1 990 ₽</a>
+      </div>
+
+      <div class="tariff featured">
+        <div class="badge">Чаще выбирают</div>
+        <h3>Я не одна</h3>
+        <div class="price">4 900 ₽</div>
+        <ul>
+          <li>Всё из тарифа «Я сама»</li>
+          <li>Закрытый чат участниц</li>
+          <li>Разборы вопросов раз в неделю</li>
+          <li>Личные ситуации без анонимности</li>
+          <li>Поддержка на всём пути</li>
+        </ul>
+        <a class="cta-btn" href="https://t.me/prosti_seby_bot?start=tier_middle">Начать за 4 900 ₽</a>
+      </div>
+
+      <div class="tariff">
+        <h3>Глубокая работа</h3>
+        <div class="price">14 900 ₽</div>
+        <ul>
+          <li>Всё из предыдущих тарифов</li>
+          <li>Две личные сессии по 60 минут</li>
+          <li>Индивидуальная обратная связь</li>
+          <li>Время согласуем когда будешь готова</li>
+        </ul>
+        <a class="cta-btn" href="https://t.me/prosti_seby_bot?start=tier_premium">Начать за 14 900 ₽</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2>Частые вопросы</h2>
+    <dl>
+      <dt>Сколько по времени занимает программа?</dt>
+      <dd>Шесть подкастов по 15-20 минут. Можно слушать вечером в наушниках перед сном. Плюс одна короткая практика утром каждый день в течение месяца.</dd>
+
+      <dt>Это работает дистанционно? Без живых встреч?</dt>
+      <dd>Да. Базовый тариф — полностью дистанционный, в боте. На «Я не одна» добавляется чат и групповые разборы. На «Глубокой работе» — две личные сессии по 60 минут.</dd>
+
+      <dt>Я уже была у психолога. Зачем мне это?</dt>
+      <dd>Это не замена психотерапии. Это работает в другом слое — через тело, через медитативные подкасты. Многие женщины после полугода с психологом — приходят сюда и впервые чувствуют, как обида начинает уходить.</dd>
+
+      <dt>А если я попробую и пойму, что не моё?</dt>
+      <dd>В первые 7 дней — возврат полностью. Без вопросов. Я не хочу, чтобы ты платила за то, что тебе не подошло.</dd>
+
+      <dt>Программа доступна навсегда?</dt>
+      <dd>Да. Все материалы остаются у тебя. Можно проходить заново через год, через пять лет. Часто помогает — потому что в разные периоды жизни одни и те же слова звучат по-разному.</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© Наталья Прокофьева, 2026 · ИП РФ</p>
+    <p style="margin-top: 8px;">Для связи — <a href="https://t.me/NataProkofeva">@NataProkofeva</a></p>
+    <p style="margin-top: 12px; font-size: 12px;">Регистрируясь и оплачивая, вы соглашаетесь с обработкой персональных данных согласно 152-ФЗ.</p>
+  </div>
+</footer>
+
+</body>
+</html>
